@@ -9,9 +9,13 @@ class Queue:
             self._mode = mode
     
     def enqueue(self, item):
-        pass
+        self._queue.append(item)
+
     def dequeue(self):
-        pass
+        
+        usuario= self._queue.pop(0)
+        return usuario
+
     def get_queue(self):
         return self._queue
     def size(self):

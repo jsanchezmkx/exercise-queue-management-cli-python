@@ -1,7 +1,7 @@
 # Download the helper library from https://www.twilio.com/docs/python/install
 from twilio.rest import Client
 
-def send(body, to=''):
+def send(body):
     # Your Account Sid and Auth Token from twilio.com/console
     # DANGER! This is insecure. See http://twil.io/secure
     account_sid = 'AC9706b47d65d3d7da5f0ba9b0f521ced2'

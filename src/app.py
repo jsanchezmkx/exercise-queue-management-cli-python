@@ -1,6 +1,6 @@
 import json
 from DataStructures import Queue
-from sms import send
+#from sms import send
 
 # there queue has to be declared globally (outside any other function)
 # that way all methods have access to it
@@ -12,11 +12,18 @@ def print_queue():
     print(queue.get_queue())
 
 def add():
-    pass
+    print("Ingresa el nombre del guevon que va a entrar en lista: ")
+    usuario=input()
+    print(usuario)
+    queue.enqueue(usuario)
+    
 
 def dequeue():
-    pass
-
+    cliente=queue.dequeue()
+    print("has eliminados a el usuario",cliente)
+    mensaje='Le toca comer a :'+cliente
+    send(mensaje)
+    
 def save():
     pass
 
@@ -40,8 +47,13 @@ What would you like to do (type a number and press Enter)?
 
     option = int(input("Enter a number:"))
     # add your options here using conditionals (if)
+
     if option == 3:
         print_queue()
+    elif option== 1:
+        add()
+    elif option== 2:
+        dequeue()
     elif option == 6:
         print("Bye bye!")
         stop = True
