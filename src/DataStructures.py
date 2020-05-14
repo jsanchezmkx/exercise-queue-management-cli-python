@@ -4,7 +4,7 @@ class Queue:
         self._queue = current_queue
         # depending on the _mode, the queue has to behave like a FIFO or LIFO
         if mode is None:
-            raise "Please specify a queue mode FIFO or LIFO"
+            raise "Please specify a queue mode FIFO or LIFOssss"
         else:
             self._mode = mode
     
