@@ -10,13 +10,18 @@ class Queue:
     
     def enqueue(self, item):
         self._queue.append(item)
+        colita=self._queue
+        return colita
 
     def dequeue(self):
-        
-        usuario= self._queue.pop(0)
+        if self._mode == "FIFO":
+            usuario= self._queue.pop(0)
+        else:
+            usuario= self._queue.pop()
         return usuario
 
     def get_queue(self):
         return self._queue
+
     def size(self):
         pass

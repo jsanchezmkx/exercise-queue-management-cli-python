@@ -16,5 +16,5 @@ def send(body):
                     )
 
     print(message.sid)
-mensaje="hola mmgvo"
-send(mensaje)
+
+send()

@@ -5,31 +5,50 @@ from DataStructures import Queue
 # there queue has to be declared globally (outside any other function)
 # that way all methods have access to it
 queue = Queue(mode="FIFO")
+#queue = Queue(mode="LIFO")
     
 def print_queue():
     # you must print on the console the entire queue list
     print("Printing the entire list...")
-    print(queue.get_queue())
+    lista = queue.get_queue()
+    y=1
+    for x in lista:
+        print(str(y) + "-" + x)
+        y=y+1
 
 def add():
     print("Ingresa el nombre del guevon que va a entrar en lista: ")
     usuario=input()
-    print(usuario)
-    queue.enqueue(usuario)
+    cola=queue.enqueue(usuario)
+  #  mensaje="Has sido agregado a la lista, tienes " , str(len(cola) - 1), " por delante"
+ #   send(mensaje)
+    print("Has sido agregado a la lista, tienes " , str(len(cola) - 1), " por delante")
     
 
 def dequeue():
     cliente=queue.dequeue()
     print("has eliminados a el usuario",cliente)
     mensaje='Le toca comer a :'+cliente
-    send(mensaje)
+   # send(mensaje)
     
 def save():
-    pass
+    queue_file=queue.get_queue()
+    file_to_save = open("queue.json","w+")
+    file_to_save.write(json.dumps(queue_file))
+    file_to_save.close()
+
 
 def load():
-    pass 
-        
+  #  pass
+    file=open("queue.json","r")
+    contenido=file.read()
+    resultado = json.loads(contenido)
+    queue._queue=resultado
+
+
+    file.close()
+
+
     
 print("\nHello, this is the Command Line Interface for a Queue Managment application.")
 stop = False
@@ -54,6 +73,12 @@ What would you like to do (type a number and press Enter)?
         add()
     elif option== 2:
         dequeue()
+    elif option == 4:
+        print("Guardando lista de espera")
+        save()
+    elif option == 5:
+        print("abriendo lista")
+        load()
     elif option == 6:
         print("Bye bye!")
         stop = True
