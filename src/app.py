@@ -1,6 +1,6 @@
 import json
 from DataStructures import Queue
-#from sms import send
+from sms import send
 
 # there queue has to be declared globally (outside any other function)
 # that way all methods have access to it
@@ -20,8 +20,8 @@ def add():
     print("Ingresa el nombre del guevon que va a entrar en lista: ")
     usuario=input()
     cola=queue.enqueue(usuario)
-  #  mensaje="Has sido agregado a la lista, tienes " , str(len(cola) - 1), " por delante"
- #   send(mensaje)
+    mensaje="Has sido agregado a la lista, tienes " , str(len(cola) - 1), " por delante"
+    send(mensaje)
     print("Has sido agregado a la lista, tienes " , str(len(cola) - 1), " por delante")
     
 
@@ -29,7 +29,7 @@ def dequeue():
     cliente=queue.dequeue()
     print("has eliminados a el usuario",cliente)
     mensaje='Le toca comer a :'+cliente
-   # send(mensaje)
+    send(mensaje)
     
 def save():
     queue_file=queue.get_queue()
